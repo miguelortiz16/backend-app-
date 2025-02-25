@@ -1,6 +1,6 @@
 package com.bancobogota.products.model;
 
-import lombok.*;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,9 +8,12 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 
-@Data
-@AllArgsConstructor
+import lombok.*;
+
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Document(collection = "products")
 public class Product {
     @Id
@@ -27,6 +30,8 @@ public class Product {
 
     @Min(value = 0, message = "El stock no puede ser negativo")
     private Integer stock;
+
+
 
     public String getId() {
         return id;
